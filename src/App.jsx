@@ -5,12 +5,12 @@ import About from './Component/About'
 
 const App = () => {
   return (
-    <>
+    <div className='overflow-x-hidden'>
     <Banner/>
     <About />
     <CircularSkills />
    
-    </>
+    </div>
   )
 }
 

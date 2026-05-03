@@ -254,16 +254,8 @@ export default function CircularSkills() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const orbitRef = useRef(null);
 
-  const handleEnter = (skill) => {
-    setPaused(true);
-    setHoveredSkill(skill);
-  };
-
-  const handleLeave = () => {
-    setPaused(false);
-    setHoveredSkill(null);
-  };
-
+  const handleEnter = (skill) => { setPaused(true); setHoveredSkill(skill); };
+  const handleLeave = () => { setPaused(false); setHoveredSkill(null); };
   const handleMove = (e) => {
     let x = e.clientX;
     let y = e.clientY;
@@ -289,44 +281,37 @@ export default function CircularSkills() {
         }
       `}</style>
 
-      <motion.div className=" bg-radial-[at_100%_0%] from-white via-black to-zinc-900 to-90%"
-        style={{
-          minHeight: "100vh",
-          
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "2rem 1rem",
-          position: "relative",
-          overflow: "hidden",
-          fontFamily: "sans-serif",
-        }}
+      <motion.div
+        className="bg-radial-[at_100%_0%] from-white via-black to-zinc-800 to-90% min-h-screen flex flex-col items-center justify-center px-4 py-8 relative overflow-hidden font-sans"
       >
         {/* Decorative rings */}
-        <div style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", border: "1px solid rgba(0,200,255,0.25)", top: "50%", left: "50%", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", width: 340, height: 340, borderRadius: "50%", border: "1px solid rgba(0,200,255,0.18)", top: "50%", left: "50%", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
+        <div className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full border border-[rgba(0,200,255,0.25)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute w-[200px] h-[200px] md:w-[340px] md:h-[340px] rounded-full border border-[rgba(0,200,255,0.18)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
         {/* Section title */}
-       <motion.h2
-       initial={{ opacity: 0, y: -20 }}
-       whileInView={{ opacity: 1, y: 0 }}
-       transition={{delay:0.5}}
-       className="text-[rgba(0,200,255,0.6)] text-5xl font-bold mb-10 -mt-10" >My Skills</motion.h2>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="text-3xl md:text-5xl font-bold mb-8 md:mb-10 -mt-6 md:-mt-10 text-[rgba(0,200,255,0.6)]"
+        >
+          My Skills
+        </motion.h2>
 
         {/* Orbit container */}
-        <motion.div 
-        initial={{ opacity: 0 , scale: 0 }}
-        whileInView={{opacity:1 , translateY: 50 , scale: 1}}
-        transition={{animation:"ease-in-out", duration:0.5, delay:0.3}}
-        style={{ position: "relative", width: 420, height: 420, margin: "0 auto" }}>
+        
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, translateY: 50, scale: 1 }}
+          transition={{ animation: "ease-in-out", duration: 0.5, delay: 0.3 }}
+          className="relative md:right-0 md:top-0 right-3 top-3 w-[420px] h-[420px] md:w-[420px] md:h-[420px] mx-auto"
+        >
           {/* Rotating ring */}
-          <div
+          <div className="">  
+            <div
             ref={orbitRef}
+            className="absolute w-full md:top-0 md:right-0 top-5 right-13 h-full"
             style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
               animation: `orbitSpin ${ORBIT_DURATION}s linear infinite`,
               animationPlayState: paused ? "paused" : "running",
             }}
@@ -345,47 +330,20 @@ export default function CircularSkills() {
             ))}
           </div>
 
+          </div>
+          
+
           {/* Center info */}
           <motion.div
-           
-
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              textAlign: "center",
-              width: 160,
-              pointerEvents: "none",
-              transition: "opacity 0.3s ease",
-              opacity: hoveredSkill ? 0 : 1,
-            }}
+            className={`absolute left-40 top-1/2 md:left-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-32 md:w-40 pointer-events-none transition-opacity duration-300 ${hoveredSkill ? "opacity-0" : "opacity-100"}`}
           >
-            <div
-              style={{
-                width: 90,
-                height: 90,
-                borderRadius: "50%",
-                background: "radial-gradient(circle, rgba(0,200,255,0.15) 0%, transparent 70%)",
-                margin: "0 auto 8px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid rgba(0,200,255,0.2)",
-                position: "relative",
-              }}
+            <div className="w-16 h-16 md:w-[90px] md:h-[90px] rounded-full mx-auto mb-2 flex items-center justify-center border border-[rgba(0,200,255,0.2)] relative"
+              style={{ background: "radial-gradient(circle, rgba(0,200,255,0.15) 0%, transparent 70%)" }}
             >
-              <div
-                style={{
-                  position: "absolute",
-                  width: 70,
-                  height: 70,
-                  borderRadius: "50%",
-                  border: "1px solid rgba(0,200,255,0.1)",
-                  animation: "pulseRing 2s ease-in-out infinite",
-                }}
+              <div className="absolute w-12 h-12 md:w-[70px] md:h-[70px] rounded-full border border-[rgba(0,200,255,0.1)]"
+                style={{ animation: "pulseRing 2s ease-in-out infinite" }}
               />
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+              <svg width="24" height="24" viewBox="0 0 30 30" fill="none" className="md:w-[30px] md:h-[30px]">
                 <circle cx="15" cy="15" r="6" fill="rgba(0,200,255,0.3)" stroke="rgba(0,200,255,0.6)" strokeWidth="1" />
                 <circle cx="15" cy="5" r="2.5" fill="rgba(0,200,255,0.5)" />
                 <circle cx="23.7" cy="20" r="2.5" fill="rgba(0,200,255,0.5)" />
@@ -395,40 +353,24 @@ export default function CircularSkills() {
                 <ellipse cx="15" cy="15" rx="14" ry="5.5" stroke="rgba(0,200,255,0.2)" strokeWidth="0.8" fill="none" transform="rotate(120 15 15)" />
               </svg>
             </div>
-            <p style={{ fontFamily: "monospace", fontSize: 11, color: "rgba(255,255,255,0.9)", margin: "0 0 4px", letterSpacing: 1 }}>hover an icon</p>
-            <p style={{ fontFamily: "sans-serif", fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.4, margin: 0 }}>to explore my skills</p>
+            <p className="font-mono text-[10px] md:text-[11px] text-white/90 mb-1 tracking-widest">hover an icon</p>
+            <p className="text-[10px] md:text-[11px] text-white/45 leading-snug">to explore my skills</p>
           </motion.div>
         </motion.div>
 
         {/* Legend */}
         <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9, rotate: 5,translateY:100 , transition: { duration: 0.3 } }}
-        whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0, transition: { duration: 0.3 } }}
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 8,
-            marginTop: "1.5rem",
-            maxWidth: 520,
-            width: "100%",
-          }}
+          initial={{ opacity: 0, y: 20, scale: 0.9, rotate: 5, translateY: 100, transition: { duration: 0.3 } }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0, transition: { duration: 0.3 } }}
+          className="grid grid-cols-3 md:grid-cols-4 gap-2 mt-6 max-w-[320px] md:max-w-[520px] w-full"
         >
           {skills.map((skill) => (
             <div
               key={skill.name}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-                background: "rgba(255,255,255,0.04)",
-                border: "0.5px solid rgba(255,255,255,0.08)",
-                borderRadius: 8,
-                padding: "6px 10px",
-                cursor: "default",
-              }}
+              className="flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-lg px-2.5 py-1.5 cursor-default"
             >
-              <div style={{ width: 8, height: 8, borderRadius: "50%", background: skill.color, flexShrink: 0 }} />
-              <span style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", fontWeight: 600, letterSpacing: 0.5 }}>{skill.name}</span>
+              <div className="w-2 h-2 rounded-full shrink-0" style={{ background: skill.color }} />
+              <span className="text-[10px] md:text-[11px] text-white/60 font-semibold tracking-wide truncate">{skill.name}</span>
             </div>
           ))}
         </motion.div>

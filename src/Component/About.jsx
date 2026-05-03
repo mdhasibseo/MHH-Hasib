@@ -44,21 +44,21 @@ const About = () => {
   };
   return (
     <motion.section
-     className="bg-zinc-800 py-60 px-16  flex items-end">
+     className="bg-zinc-800 md:py-60 md:px-16 px-8 py-12 flex items-end">
       <div className="container mx-auto">
         <div
-          className="grid gap-16"
-          style={{ gridTemplateColumns: "55fr 45fr 45fr" }}
+          className=" grid lg:grid-cols-3 gap-16 lg:grid-cols-[55fr_45fr_45fr]"
+          //  style={{ gridTemplateColumns: "55fr 45fr 45fr" }}
         >
           {/* ---- LEFT ---- */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center ">
             <motion.h2
               variants={fadeup}
               custom={0}
               initial="hidden"
               whileInView="visible"
               
-              className="text-5xl font-bold leading-tight text-white"
+              className="md:text-5xl text-3xl font-bold leading-tight text-white"
             >
               MD Hasib is <br />
               <span className="">Right Here!</span>
@@ -70,7 +70,7 @@ const About = () => {
               initial="hidden"
               whileInView="visible"
               
-              className="text-base font-normal opacity-70 text-white mt-6 mb-8 leading-relaxed"
+              className="md:text-base font-normal text-sm opacity-70 text-white mt-6 mb-8 leading-relaxed"
             >
               With a passion for clean code, I build fast and scalable web
               applications that deliver real results.
@@ -86,7 +86,7 @@ const About = () => {
 
               className="flex items-center gap-4"
             >
-              <button className="bg-transparent text-white border text-sm font-semibold tracking-widest rounded-2xl px-6 py-3 hover:bg-white/80 hover:text-black transition-all">
+              <button className="bg-transparent  text-white border text-sm font-semibold tracking-widest rounded-2xl px-6 py-3 hover:bg-white/80 hover:text-black transition-all">
                 HIRE ME
               </button>
               <button className="bg-transparent border border-white/30 text-white text-sm font-semibold tracking-widest px-6 py-3  rounded-2xl hover:border-white/60 transition-all flex items-center gap-2">
@@ -97,13 +97,13 @@ const About = () => {
             {/* Stats */}
             <div className="flex items-center gap-12 mt-8 pt-8 border-t border-white/8">
               <div>
-                <p className="text-4xl font-bold text-white ">98%</p>
+                <p className="md:text-4xl text-2xl font-bold text-white ">98%</p>
                 <p className="text-xs font-normal opacity-60 text-white mt-1">
                   Client Satisfaction
                 </p>
               </div>
               <div>
-                <p className="text-4xl font-bold text-white ">20+</p>
+                <p className="md:text-4xl font-bold text-2xl text-white ">20+</p>
                 <p className="text-xs font-normal opacity-60 text-white mt-1">
                   Projects Delivered
                 </p>
@@ -120,7 +120,7 @@ const About = () => {
          
           
           
-          className="relative top-35 right-30 flex items-end justify-center scale-150">
+          className="relative md:top-32 order-first md:order-0  md:right-30 flex items-end   justify-center md:scale-150">
             <img src={about} alt="MD Hasib" className="w-full object-contain" />
           </motion.div>
 
@@ -136,11 +136,11 @@ const About = () => {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-[#D4F044] text-xl">{service.icon}</span>
-                  <p className="text-sm font-semibold tracking-widest text-white">
+                  <p className="md:text-sm font-semibold tracking-widest text-white text-xs">
                     {service.title}
                   </p>
                 </div>
-                <p className="text-sm font-normal opacity-65 text-white leading-relaxed">
+                <p className="md:text-sm text-xs font-normal opacity-65 text-white leading-relaxed">
                   {service.desc}
                 </p>
               </motion.div>
