@@ -6,7 +6,7 @@ const Banner = () => {
 
 return (
   <>
-    <section   className="h-screen  bg-[linear-gradient(to_right,rgba(0,0,0,0.9)_10%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.7)_80%),url(./assets/hasib.png)] bg-cover md:bg-contain bg-position-[-50%_bottom]  md:bg-position-[60%_center]   bg-no-repeat flex items-center justify-center brightness-[4]  ">
+    <section   className="h-screen  bg-[linear-gradient(to_right,rgba(0,0,0,0.9)_10%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.7)_80%),url(./assets/hasib.png)] bg-cover md:bg-contain bg-position-[-80%_bottom]  md:bg-position-[60%_center]   bg-no-repeat flex items-center justify-center brightness-[4]  ">
       <div className="flex items-center justify-center max-w-7xl w-full px-6 gap-2">
         {name.map((item, index) => (
           <motion.h1
