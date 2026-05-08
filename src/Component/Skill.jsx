@@ -282,7 +282,7 @@ export default function CircularSkills() {
       `}</style>
 
       <motion.div
-        className="bg-radial-[at_100%_0%] from-white via-black to-zinc-800 to-90% min-h-screen flex flex-col items-center justify-center px-4 py-8 relative overflow-hidden font-sans"
+        className="bg-radial-[at_100%_0%] from-white via-zinc-900 to-zinc-900 to-100% min-h-screen flex flex-col items-center justify-center px-4 py-8 relative overflow-hidden font-sans"
       >
         {/* Decorative rings */}
         <div className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full border border-[rgba(0,200,255,0.25)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />

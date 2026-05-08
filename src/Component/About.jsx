@@ -44,7 +44,7 @@ const About = () => {
   };
   return (
    <motion.section
-  className="bg-zinc-800 md:py-40 lg:py-60 md:px-8 lg:px-16 px-8 py-12 flex items-end">
+  className="bg-[linear-gradient(to_left,rgba(0,0,0,0.9)_10%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.7)_80%)] md:py-40 lg:py-60 md:px-8 lg:px-16 px-8 py-12 flex items-end">
   <div className="container mx-auto">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 lg:grid-cols-[55fr_45fr_45fr] lg:gap-16">
 
