@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import mhh from "../assets/mhh.png";
-import { Menu, X } from "Lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navber = () => {
   const [open, setOpen] = useState(false);
