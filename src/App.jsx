@@ -5,12 +5,14 @@ import About from './Component/About'
 import Projects from './Component/Projects'
 
 import Navber from './Component/Navber'
+import Aboutme from './Component/Aboutme'
 
 const App = () => {
   return (
     <div className='overflow-x-hidden'>
       <Navber/>
     <Banner/>
+    <Aboutme />
     <About />
     <CircularSkills />
     <Projects />

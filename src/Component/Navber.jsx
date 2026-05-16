@@ -6,7 +6,7 @@ const Navber = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="bg-[linear-gradient(to_right,rgba(0,0,0,0.9)_10%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.7)_80%)] py-8">
+    <section className="bg-[linear-gradient(to_right,rgba(0,0,0,0.9)_10%,rgba(0,0,0,0.7)_40%,rgba(0,0,0,0.7)_80%)] pt-5">
       
       {/* navbar */}
       <div className="flex items-center justify-between px-6 md:px-12 lg:px-20">
